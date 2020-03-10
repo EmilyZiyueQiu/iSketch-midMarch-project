@@ -25,9 +25,9 @@ let x,y,a1,a2
 
 //preload------------------------------------------------------------------
 
-function preload(){
-  img = loadImage('image/title.png');
-}
+//function preload(){
+  //img = loadImage('image/title.png');
+//}
 
 
 //setup function-----------------------------------------------------------
@@ -123,7 +123,12 @@ function draw() {
 
 
   //title
-  image(img,0,0,1/5*windowWidth,90);
+  fill("white");
+  textSize(40);
+  textFont('Helvetica');
+  textStyle(BOLD);
+  text("iSketch : )",30,50);
+  //image(img,0,0,1/5*windowWidth,90);
 
   //show what color is it now
   stroke(slider1.value(),slider2.value(),slider3.value());
