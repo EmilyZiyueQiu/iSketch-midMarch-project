@@ -116,10 +116,27 @@
 
 
 #flower{
-		width: 100px;
+		width: 60px;
 		height:30px;
-		font-size: 15px;
-		top: 450px;
+		font-size: 12px;
+		top: 460px;
+		left: 225px;
+		position: absolute;
+		background-color: #ff5bb0;
+		color:#ffffff;
+		font-family: Chalkduster, fantasy;
+		border-radius:6px;
+		border:1px solid #ee1eb5;
+		cursor:pointer;
+		box-shadow:inset 0px 1px 0px 0px #fbafe3;
+		text-shadow:0px 1px 0px #c70067;
+}
+
+#ellipse{
+		width: 60px;
+		height:30px;
+		font-size: 12px;
+		top: 460px;
 		left: 20px;
 		position: absolute;
 		background-color: #ff5bb0;
@@ -132,6 +149,39 @@
 		text-shadow:0px 1px 0px #c70067;
 }
 
+#rect{
+		width: 60px;
+		height:30px;
+		font-size: 15px;
+		top: 460px;
+		left: 90px;
+		position: absolute;
+		background-color: #ff5bb0;
+		color:#ffffff;
+		font-family: Chalkduster, fantasy;
+		border-radius:6px;
+		border:1px solid #ee1eb5;
+		cursor:pointer;
+		box-shadow:inset 0px 1px 0px 0px #fbafe3;
+		text-shadow:0px 1px 0px #c70067;
+}
+
+#star{
+		width: 60px;
+		height:30px;
+		font-size: 15px;
+		top: 460px;
+		left: 160px;
+		position: absolute;
+		background-color: #ff5bb0;
+		color:#ffffff;
+		font-family: Chalkduster, fantasy;
+		border-radius:6px;
+		border:1px solid #ee1eb5;
+		cursor:pointer;
+		box-shadow:inset 0px 1px 0px 0px #fbafe3;
+		text-shadow:0px 1px 0px #c70067;
+}
 
 
 
@@ -154,6 +204,9 @@
 <button id="refresh" onclick="refresh()">NewPaper</button>
 
 
+<button id="ellipse" onclick = "drawEllipse()">Ellipse</button>
+<button id="rect" onclick = "drawRectangle()">Rect</button>
+<button id="star" onclick = "drawStar()">Star</button>
 <button id="flower" onclick = "drawFlower()">Flower</button>
 
 </html>

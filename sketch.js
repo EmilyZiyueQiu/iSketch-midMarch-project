@@ -1,16 +1,27 @@
 
+//mode control variable
 let control=0;
 let rubber=0;
+
 //slider for paint brush
 let slider1;
 let slider2;
 let slider3;
 let slider4;
+let slider5;
+let slider6;
+let slider7;
+let slider8;
+let slider9;
+
 //variable for flower
 let o =0;
 let fx=[];
 let lx=[];
 let i =0;
+
+//variable for stars
+let x,y,a1,a2
 
 //preload------------------------------------------------------------------
 
@@ -42,15 +53,34 @@ function setup() {
   slider4=createSlider(1,25);
   slider4.position(170, 235);
   slider4.style('width', '100px');
+
+
+  slider5=createSlider(0,255);	
+  slider5.position(33, 500);
+  slider5.style('width', '70px');
+
+  slider6=createSlider(0,255);	
+  slider6.position(123, 500);
+  slider6.style('width', '70px');
+
+  slider7=createSlider(0,255);	
+  slider7.position(210, 500);
+  slider7.style('width', '70px');
+
+  slider8=createSlider(10,250);	
+  slider8.position(40, 520);
+  slider8.style('width', '100px');
+
+  slider9=createSlider(10,250);	
+  slider9.position(180, 520);
+  slider9.style('width', '100px');
+  
 }
 
 
 //draw function------------------------------------------------------------
 function draw() {	
 
-  //***a tool: to find positions
-   // console.log(mouseX,mouseY);	
-  
   //flower
   for(let i =0; i<fx.length; i++){ 
       flower(fx[i],lx[i]);
@@ -67,9 +97,12 @@ function draw() {
   textFont('Helvetica');
   textStyle(BOLD);
   text("Explore each tool with a click~",20,105);
-  text("Don't be anxious if things go wild",20,120);
-  text("Press space to start a new page~",20,135);
-  text("p.s. click save to download your work :)" ,20,150);
+  text("Don't be anxious if things go wild",20,122);
+  text("You can always start a new page~",20,139);
+  text("p.s. click save to download your work :)" ,20,156);
+  text("1. Click the shape button you want" ,20,418);
+  text("2. Adjust it as you like~" ,20,435);
+  text("3. Place it with a DOUBLECLICK" ,20,452);
 
   //paint tags
   fill("#331900");
@@ -82,9 +115,13 @@ function draw() {
   textSize(14);
   text("#",150,250);
 
+  //shape tags
+  textSize(9);
+  text("RGB",9,512);
+  text("Width",9,532);
+  text("Height",150,532);
 
 
-  
   //title
   image(img,0,0,1/5*windowWidth,90);
 
@@ -92,14 +129,34 @@ function draw() {
   stroke(slider1.value(),slider2.value(),slider3.value());
   strokeWeight(slider4.value());
   line(150,185,260,185);
- 
+  if(control==3){
+    flower(140,670);
+    fill("#F60039");
+    textSize(14);
+    textFont('Helvetica');
+    textStyle(BOLD);
+    text("Sorry~You cannot do change to this ",20,770);
+    text("magical annimated seven-color flower~",20,790);
+    text("Just double-click on the paper!",20,810);
 
- 
-  
-    
+  }else if(control==4){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value())
+    ellipse(140, 670,slider8.value(),slider9.value());
+  }else if (control==5){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value())
+    rect(10, 550,slider8.value(),slider9.value());
+  }else if (control==6){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value())
+    star(140, 630,1/2*slider8.value(),1/2*slider9.value());
+  }
+
+
 }
 
-
+ 
 
 //function selection--------------------------------------------------------
 
@@ -139,6 +196,20 @@ function refresh(){
   window.location.reload();
 }
 
+//draw ellipse
+function drawEllipse(){
+  control=4;
+}
+
+//draw rectangle
+function drawRectangle(){
+  control=5;
+}
+
+//draw star
+function drawStar(){
+  control=6;
+}
 
 
 //mouse interaction----------------------------------------------------------
@@ -150,23 +221,20 @@ function mouseDragged(){
   line(mouseX,mouseY,pmouseX,pmouseY);
 }else if(control==2){
   if(rubber==1){
-  erase();
-  stroke(s);
+  stroke("white");
   strokeWeight(5);
   line(mouseX,mouseY,pmouseX,pmouseY);
-  noErase();
+
   }else if(rubber==2){
-  erase();
-  stroke(s);
+    stroke("white");
   strokeWeight(12);
   line(mouseX,mouseY,pmouseX,pmouseY);
-  noErase();
+
   }else if(rubber==3){
-    erase();
-    stroke(s);
+    stroke("white");
     strokeWeight(20);
     line(mouseX,mouseY,pmouseX,pmouseY);
-    noErase();
+
     }
 }
 }
@@ -174,15 +242,27 @@ function mouseDragged(){
 
 function mousePressed(){
   s=color (slider1.value(),slider2.value(),slider3.value());
+}
+
+function doubleClicked(){
   if(control==3){
     fx[i]=mouseX;
     lx[i]=mouseY;
     i=i+1;
+  }else if (control==4){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value());
+    ellipse(mouseX, mouseY,slider8.value(),slider9.value());
+  }else if (control==5){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value());
+    rect(mouseX, mouseY,slider8.value(),slider9.value());
+  }else if (control==6){
+    noStroke();
+    fill(slider5.value(),slider6.value(),slider7.value());
+    star(mouseX, mouseY,1/2*slider8.value(),1/2*slider9.value());
   }
-  }
-
-
-
+}
 
 
 //drawing flower--------------------------------------------------------------
@@ -232,8 +312,8 @@ function flower(f,l){
 
 	o = o+0.1;
 } else{
-  erase();
-	noStroke();
+  noStroke();
+  fill("white");
 	ellipse(f,l-2.1*o,o,3*o);//top
 
 	push();//right-top
@@ -266,7 +346,6 @@ function flower(f,l){
 	ellipse(0,0,o,3*o);
   pop();
   
-  noErase();
 
 	//let o returns value 0
 	o = 0;
@@ -275,3 +354,18 @@ function flower(f,l){
 	ellipse(f,l,40,40);
 }
 
+//drawing star--------------------------------------------------------------
+
+function star(x, y, a1, a2) {
+  let angle = 2*PI / 5;
+  beginShape();
+  for (let a = 0; a < 2*PI; a += angle) {
+    let p1 = x + cos(a) * a2;
+    let p2 = y + sin(a) * a2;
+    vertex(p1, p2);
+    p1 = x + cos(a + angle/2) * a1;
+    p2 = y + sin(a + angle/2) * a1;
+    vertex(p1, p2);
+  }
+  endShape(CLOSE);
+}
