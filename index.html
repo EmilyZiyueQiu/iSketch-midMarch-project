@@ -46,11 +46,80 @@
 		text-shadow:0px 1px 0px #c70067;
 }
 
+#rubber1{
+		width: 10px;
+		height:15px;
+		top:320px;
+		left:60px;
+		background-color:#CCFFFF;
+		position: absolute;
+		cursor:pointer;	
+		
+	
+}
+
+#rubber2{
+		width: 28px;
+		height:28px;
+		top:308px;
+		left:135px;
+		background-color: #CCFFFF;
+		position: absolute;
+		cursor:pointer;	
+				
+}
+
+#rubber3{
+		width: 38px;
+		height:38px;
+		top:298px;
+		left:220px;
+		background-color:#CCFFFF;
+		position: absolute;
+		cursor:pointer;	
+		border-radius:6px;		
+}
+
+#refresh{
+		width: 100px;
+		height:30px;
+		font-size: 15px;
+		top: 360px;
+		left: 20px;
+		position: absolute;
+		background-color:#B05EDA;
+		color:#ffffff;
+		font-family: Chalkduster, fantasy;
+		border-radius:6px;
+		border:1px solid #C500F6;
+		cursor:pointer;
+		box-shadow:inset 0px 1px 0px 0px #DD8FF5;
+		text-shadow:0px 1px 0px #C500F6;
+}
+
+#save{
+		width: 100px;
+		height:30px;
+		font-size: 15px;
+		top: 360px;
+		left: 165px;
+		position: absolute;
+		background-color:#B05EDA;
+		color:#ffffff;
+		font-family: Chalkduster, fantasy;
+		border-radius:6px;
+		border:1px solid #C500F6;
+		cursor:pointer;
+		box-shadow:inset 0px 1px 0px 0px #DD8FF5;
+		text-shadow:0px 1px 0px #C500F6;
+}
+
+
 #flower{
 		width: 100px;
 		height:30px;
 		font-size: 15px;
-		top: 350px;
+		top: 450px;
 		left: 20px;
 		position: absolute;
 		background-color: #ff5bb0;
@@ -63,6 +132,10 @@
 		text-shadow:0px 1px 0px #c70067;
 }
 
+
+
+
+
 </style>
 
 <body></body>
@@ -72,7 +145,15 @@
 
 <button id="eraser" onclick = "eraser()">Eraser</button>
 <button id="paint" onclick = "paint()">Paint</button>
-<button id="flower" onclick = "flower()">flower</button>
 
+<button id="rubber1" onclick = "rubberSize1()"></button>
+<button id="rubber2" onclick = "rubberSize2()"></button>
+<button id="rubber3" onclick = "rubberSize3()"></button>
+
+<button id="save" onclick="save('mySketch')">Save</button>
+<button id="refresh" onclick="refresh()">NewPaper</button>
+
+
+<button id="flower" onclick = "drawFlower()">Flower</button>
 
 </html>
