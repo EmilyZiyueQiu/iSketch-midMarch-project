@@ -25,9 +25,9 @@ let x,y,a1,a2
 
 //preload------------------------------------------------------------------
 
-//function preload(){
-  //img = loadImage('image/title.png');
-//}
+function preload(){
+  img = loadImage('image/title.png');
+}
 
 
 //setup function-----------------------------------------------------------
@@ -123,26 +123,26 @@ function draw() {
 
 
   //title
-  fill("white");
+  /*fill("white");
   textSize(40);
   textFont('Helvetica');
   textStyle(BOLD);
-  text("iSketch : )",30,50);
-  //image(img,0,0,1/5*windowWidth,90);
+  text("iSketch : )",30,50);*/
+  image(img,0,0,1/5*windowWidth,90);
 
   //show what color is it now
   stroke(slider1.value(),slider2.value(),slider3.value());
   strokeWeight(slider4.value());
   line(150,185,260,185);
   if(control==3){
-    flower(140,670);
+    flower(140,680);
     fill("#F60039");
     textSize(14);
     textFont('Helvetica');
     textStyle(BOLD);
-    text("Sorry~You cannot do change to this ",20,770);
-    text("magical annimated seven-color flower~",20,790);
-    text("Just double-click on the paper!",20,810);
+    text("Sorry~You cannot do change to this ",20,560);
+    text("magical annimated seven-color flower~",20,580);
+    text("Just double-click on the paper!",20,600);
 
   }else if(control==4){
     noStroke();
