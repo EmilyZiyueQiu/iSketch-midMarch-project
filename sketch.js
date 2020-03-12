@@ -74,6 +74,7 @@ function setup() {
   slider9=createSlider(10,250);	
   slider9.position(180, 520);
   slider9.style('width', '100px');
+  slider9.style('background-color', 'red');
   
 }
 
