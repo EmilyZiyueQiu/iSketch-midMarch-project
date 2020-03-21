@@ -20,14 +20,17 @@ let fx=[];
 let lx=[];
 let i =0;
 
+//variable for heart
+let sx=[];
+let tx=[];
+let rx=[];
+let gx=[];
+let bx=[];
+let wx=[]
+let j=0;
+
 //variable for stars
 let x,y,a1,a2
-
-//preload------------------------------------------------------------------
-
-function preload(){
-  img = loadImage('image/title.png');
-}
 
 
 //setup function-----------------------------------------------------------
@@ -75,6 +78,7 @@ function setup() {
   slider9.position(180, 520);
   slider9.style('width', '100px');
   slider9.style('background-color', 'red');
+
   
 }
 
@@ -82,15 +86,22 @@ function setup() {
 //draw function------------------------------------------------------------
 function draw() {	
 
-  //flower
+  //flower array
   for(let i =0; i<fx.length; i++){ 
       flower(fx[i],lx[i]);
   }
+
+  //heart array
+  for(let j =0; j<sx.length; j++){ 
+    heart(sx[j],tx[j],rx[j],gx[j],bx[j],wx[j]);
+}
+
 
   //the frame of iSketch
   noStroke();
   fill("#FFA8C4");
   rect(0,0,1/5*windowWidth, windowHeight);
+
 
   //instructions
   fill("#331900");
@@ -123,13 +134,15 @@ function draw() {
   text("Height",150,532);
 
 
-  //title
-  /*fill("white");
-  textSize(40);
+//title
+  fill("#DD8FF5");
+  textSize(45);
+  stroke("#6F5349");
+  strokeWeight(5);
   textFont('Helvetica');
   textStyle(BOLD);
-  text("iSketch : )",30,50);*/
-  image(img,0,0,1/5*windowWidth,90);
+  text("iSketch : )",30,60);
+  
 
   //show what color is it now
   stroke(slider1.value(),slider2.value(),slider3.value());
@@ -157,13 +170,16 @@ function draw() {
     noStroke();
     fill(slider5.value(),slider6.value(),slider7.value())
     star(140, 630,1/2*slider8.value(),1/2*slider9.value());
+  }else if (control==7){
+    noStroke();
+    Heart(140,600,slider5.value(),slider6.value(),slider7.value(),(slider8.value() + slider9.value())/4)
+
   }
 
 
 }
 
  
-
 //function selection--------------------------------------------------------
 
 //paint brush function
@@ -217,6 +233,11 @@ function drawStar(){
   control=6;
 }
 
+//draw star
+function drawHeart(){
+  control=7;
+}
+
 
 //mouse interaction----------------------------------------------------------
 
@@ -267,6 +288,15 @@ function doubleClicked(){
     noStroke();
     fill(slider5.value(),slider6.value(),slider7.value());
     star(mouseX, mouseY,1/2*slider8.value(),1/2*slider9.value());
+  }else if (control==7){
+    sx[j]=mouseX;
+    tx[j]=mouseY;
+    rx[j]=slider5.value();
+    gx[j]=slider6.value();
+    bx[j]=slider7.value();
+    wx[j]=(slider8.value() + slider9.value())/4
+    j=j+1;
+
   }
 }
 
@@ -352,26 +382,57 @@ function flower(f,l){
 	ellipse(0,0,o,3*o);
   pop();
   
-
-	//let o returns value 0
+//let o returns value 0
 	o = 0;
 }
 	fill("#FFE326");
 	ellipse(f,l,40,40);
 }
 
+
 //drawing star--------------------------------------------------------------
 
 function star(x, y, a1, a2) {
+
   let angle = 2*PI / 5;
+  
   beginShape();
   for (let a = 0; a < 2*PI; a += angle) {
-    let p1 = x + cos(a) * a2;
-    let p2 = y + sin(a) * a2;
+    let p1 = x+cos(a) * a2;
+    let p2 = y+sin(a) * a2;
     vertex(p1, p2);
-    p1 = x + cos(a + angle/2) * a1;
-    p2 = y + sin(a + angle/2) * a1;
+    p1 = x+cos(a + angle/2) * a1;
+    p2 = y+sin(a + angle/2) * a1;
     vertex(p1, p2);
   }
   endShape(CLOSE);
+
+}
+
+
+
+//drawing heart--------------------------------------------------------------
+
+function heart(he,ha,hb,hc,hd,hw){
+  hr=hw+5/7*hw*cos(frameCount/100*PI);
+	stroke("white");
+	strokeWeight(2);
+	fill(hb,hc,hd,200);
+	beginShape();
+	vertex(he,ha);
+	bezierVertex(he-hr/2,ha-hr/2,he-hr,ha+hr/3,he,ha+hr);
+	bezierVertex(he+hr,ha+hr/3,he+hr/2,ha-hr/2,he,ha);
+	endShape();
+}
+
+function Heart(he,ha,hb,hc,hd,hw){
+  hr=hw+5/7*hw*cos(frameCount/100*PI);
+	stroke("#FFA8C4");
+	strokeWeight(2);
+	fill(hb,hc,hd,200);
+	beginShape();
+	vertex(he,ha);
+	bezierVertex(he-hr/2,ha-hr/2,he-hr,ha+hr/3,he,ha+hr);
+	bezierVertex(he+hr,ha+hr/3,he+hr/2,ha-hr/2,he,ha);
+	endShape();
 }
