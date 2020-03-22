@@ -12,8 +12,8 @@ Link to your project on Heroku, Zeit, GitHub Pages, or etc.:
 2. Zeit: http://emily-isketch-66i761ivv.now.sh
 
 Acknowledgement:
-*p5 reference: 
-1. https://p5js.org/reference/
+*p5 reference: https://p5js.org/reference/
+
 *p5 example: 
 1. star: https://p5js.org/examples/form-star.html
 2. slider: https://p5js.org/examples/dom-slider.html
