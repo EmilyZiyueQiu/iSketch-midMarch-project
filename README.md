@@ -31,5 +31,6 @@ iSketch is a program aiming to provide users with a unique experience of drawing
 5. Shapes and animation. This part consists of three steady shapes-- circle, rectangle and star, and two animated shapes--popping heart and a “bonus” flower. First, click the shape button that you want. Then use  slides to adjust the color and size of the shape, you can see the preview under shape buttons. When you get the shape you want, you can double-click on the paper to place that shape wherever you want : ) ~~
 
 Links for Screenshots and Video Demo:
+https://drive.google.com/open?id=1tzVyMk44QZI9NxkSlvQM1i7Ibf_lnBPy
 
 
