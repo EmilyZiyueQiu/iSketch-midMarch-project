@@ -7,7 +7,7 @@ Project Title:  iSketch
 Artist Statement: 
 Painting is a popular branch of art which has thousands of years history. Given its popularity and history, painting is also one of the most mature forms of art that embraces many different patterns of expressions with different drawing tools. Hands and drawing tablets are two common ways of drawing nowadays but have you ever thought about drawing with your laptop? This project intends to enable people to realize this dream. Based on Javascript and P5, iSketch is a web page where users can freely display their drawing creativity. By combining several basic P5 functions such as line, color  and erase, iSketch can enable users to realize the effect of traditional hand painting. While via using functions like slider, shapes and animation, iSketch can give users much more new drawing experience such as producing their ideal color or drawing with changing shapes. Painting is an old form of art while coding is a new pattern of expression. By merging these two art elements, this project is aimed not only to extend the portfolio of painting, but also act as a bridge between connecting the old and the new.)
 
-Link to your project on Heroku, Zeit, GitHub Pages, or etc.:
+Link to my project:
 1. Github: https://github.com/EmilyZiyueQiu/iSketch-midMarch-project
 2. Zeit: http://emily-isketch-66i761ivv.now.sh
 
