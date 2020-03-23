@@ -9,7 +9,7 @@ Painting is a popular branch of art which has thousands of years history. Given 
 
 Link to my project:
 1. Github: https://github.com/EmilyZiyueQiu/iSketch-midMarch-project
-2. Zeit: http://emily-isketch-66i761ivv.now.sh
+2. Zeit: https://emily-isketch-jy7midkrl.now.sh
 
 Acknowledgement:
 
